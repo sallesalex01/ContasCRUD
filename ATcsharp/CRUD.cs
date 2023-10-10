@@ -56,14 +56,16 @@ namespace ATcsharp {
 
                 if (conta == null) {
                     Console.WriteLine("Nenhuma conta encontrada");
+                    return;
                 }
 
                 if (conta.Saldo != 0) {
                     Console.WriteLine("Não é possível deletar uma conta com saldo maior que zero");
+                } else {
+                    contas.Remove(conta);
+                    Console.WriteLine("Conta Excluida com sucesso");
                 }
 
-                contas.Remove(conta);
-                Console.WriteLine("Conta Excluida com sucesso");
             } catch (Exception e) {
                 Console.WriteLine("Algo deu errado ao excluir a conta" + e.ToString());
             }
